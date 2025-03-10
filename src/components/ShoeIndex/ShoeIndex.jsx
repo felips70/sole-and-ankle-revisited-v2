@@ -1,8 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
-import { WEIGHTS } from "../../constants";
-
 import Breadcrumbs from "../Breadcrumbs";
 import Select from "../Select";
 import Spacer from "../Spacer";
@@ -102,7 +99,7 @@ const Header = styled.header`
 
 const Title = styled.h2`
   font-size: 1.5rem;
-  font-weight: ${WEIGHTS.medium};
+  font-weight: var(--weight-medium);
 `;
 
 export default ShoeIndex;

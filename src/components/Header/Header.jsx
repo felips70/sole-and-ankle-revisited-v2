@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import { COLORS, WEIGHTS } from "../../constants";
 import Logo from "../Logo";
 import SuperHeader from "../SuperHeader";
 import MobileMenu from "../MobileMenu";
@@ -69,7 +68,7 @@ const DialogOverlay = styled(Dialog.Overlay)`
 `;
 
 const DialogContent = styled(Dialog.Content)`
-  background-color: ${COLORS.white};
+  background-color: var(--white);
   height: 100vh;
   position: fixed;
   top: 0;
@@ -81,7 +80,7 @@ const TopBar = styled.div`
 
   @media (${QUERIES.tabletAndUnder}) {
     display: block;
-    background-color: ${COLORS.gray[900]};
+    background-color: var(--gray-900);
     height: 4px;
   }
 `;
@@ -105,7 +104,7 @@ const MainHeader = styled.div`
   align-items: baseline;
   padding: 18px 32px;
   height: 72px;
-  border-bottom: 1px solid ${COLORS.gray[300]};
+  border-bottom: 1px solid var(--gray-300);
   overflow-x: scroll;
 `;
 
@@ -128,11 +127,11 @@ const NavLink = styled.a`
   text-transform: uppercase;
   text-decoration: none;
   text-wrap: nowrap;
-  color: ${COLORS.gray[900]};
-  font-weight: ${WEIGHTS.medium};
+  color: var(--gray-900);
+  font-weight: var(--weight-medium);
 
   &:first-of-type {
-    color: ${COLORS.secondary};
+    color: var(--secondary);
   }
 `;
 

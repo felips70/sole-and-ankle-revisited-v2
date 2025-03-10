@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { Dialog } from "radix-ui";
 import UnstyledButton from "../UnstyledButton";
 import Icon from "../Icon";
-import { COLORS, WEIGHTS } from "../../constants";
 
 const MobileMenu = () => {
   return (
@@ -38,8 +37,8 @@ const NavLink = styled.a`
   text-transform: uppercase;
   text-decoration: none;
   color: ${(p) =>
-    p.color === "secondary" ? COLORS.secondary : COLORS.gray[900]};
-  font-weight: ${WEIGHTS.medium};
+    p.color === "secondary" ? "var(--secondary)" : "var(--gray-900)"};
+  font-weight: var(--weight-medium);
 `;
 
 const Close = styled(Icon).attrs((_) => ({
