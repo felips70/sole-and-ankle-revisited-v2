@@ -1,33 +1,77 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import UnstyledButton from '../UnstyledButton';
-import Icon from '../Icon';
-import VisuallyHidden from '../VisuallyHidden';
+import { Dialog } from "radix-ui";
+import UnstyledButton from "../UnstyledButton";
+import Icon from "../Icon";
+import { COLORS, WEIGHTS } from "../../constants";
 
-const MobileMenu = ({ isOpen, onDismiss }) => {
-  if (!isOpen) {
-    return null;
-  }
-
+const MobileMenu = () => {
   return (
-    <div>
-      <button onClick={onDismiss}>Dismiss menu</button>
-      <nav>
-        <a href="/sale">Sale</a>
-        <a href="/new">New&nbsp;Releases</a>
-        <a href="/men">Men</a>
-        <a href="/women">Women</a>
-        <a href="/kids">Kids</a>
-        <a href="/collections">Collections</a>
-      </nav>
-      <footer>
-        <a href="/terms">Terms and Conditions</a>
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/contact">Contact Us</a>
-      </footer>
-    </div>
+    <Wrapper>
+      <Dialog.Close asChild>
+        <Close />
+      </Dialog.Close>
+      <Side />
+      <Nav>
+        <NavLink color="secondary" href="/sale">
+          Sale
+        </NavLink>
+        <NavLink href="/new">New&nbsp;Releases</NavLink>
+        <NavLink href="/men">Men</NavLink>
+        <NavLink href="/women">Women</NavLink>
+        <NavLink href="/kids">Kids</NavLink>
+        <NavLink href="/collections">Collections</NavLink>
+      </Nav>
+      <Side />
+      <Footer>
+        <NavLink href="/terms">Terms and Conditions</NavLink>
+        <NavLink href="/privacy">Privacy Policy</NavLink>
+        <NavLink href="/contact">Contact Us</NavLink>
+      </Footer>
+    </Wrapper>
   );
 };
+
+const NavLink = styled.a`
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: ${(p) =>
+    p.color === "secondary" ? COLORS.secondary : COLORS.gray[900]};
+  font-weight: ${WEIGHTS.medium};
+`;
+
+const Close = styled(Icon).attrs((_) => ({
+  id: "close",
+  strokeWidth: 2,
+}))`
+  margin-left: auto;
+`;
+
+const Nav = styled.nav`
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+`;
+
+const Footer = styled.footer`
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+`;
+
+const Side = styled.div`
+  flex: 1;
+`;
+
+const Wrapper = styled.div`
+  height: 100%;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 300px;
+`;
 
 export default MobileMenu;
